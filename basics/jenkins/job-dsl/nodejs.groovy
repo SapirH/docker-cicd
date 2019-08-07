@@ -13,7 +13,7 @@ job('NodeJS example') {
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
     steps {
-        shell("npm install")
+        shell('npm install')
     }
 }
 
@@ -41,5 +41,22 @@ job('NodeJS Docker example') {
             createFingerprints(false)
             skipDecorate()
         }
+    }
+}
+job('boilerplate-pipeline') {
+    scm {
+        git('git@github.com:SapirH/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
+            node / gitConfigName('SapirH')
+            node / gitConfigEmail('sapir.holzman@gmail.com ')
+        }
+    }
+    triggers {
+        scm('H/5 * * * *')
+    }
+    wrappers {
+        nodejs('newNodeJs') 
+    }
+    steps {
+        shell('misc/Jenkinsfile')
     }
 }
