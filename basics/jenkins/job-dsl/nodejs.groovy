@@ -35,7 +35,7 @@ job('NodeJS Docker example') {
             repositoryName('SapirH/docker-cicd') //qa / dev
             tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
-            buidContexts('jenkins')
+            buidContexts('./basic')
             forcePull(false)
             forceTag(false)
             createFingerprints(false)
