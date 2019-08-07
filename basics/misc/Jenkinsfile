@@ -18,13 +18,11 @@ node {
    }
    stage('docker run') {
      sh label: '', script: '''
-      docker rm -f docker_test
       docker run --rm -tid --name docker_test -p 3000 sapirh/nodejs-demo
+      docker kill docker_test
       PORT=$(docker inspect docker_test | jq -r '.[].NetworkSettings.Ports."3000/tcp"[].HostPort')
       echo $PORT
       curl -i localhost:$PORT
-      docker kill docker_test
-      
       '''
      }
    }
