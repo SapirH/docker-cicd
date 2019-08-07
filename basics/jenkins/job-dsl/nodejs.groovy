@@ -2,7 +2,7 @@ job('NodeJS example') {
     scm {
         git('https://github.com/SapirH/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('SapirH')
-            node / gitConfigEmail('sapir.holzman@gmail.com ')
+            node / gitConfigEmail('sapir.holzman@gmail.com')
         }
     }
     triggers {
@@ -21,7 +21,7 @@ job('NodeJS Docker example') {
     scm {
         git('https://github.com/SapirH/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('SapirH')
-            node / gitConfigEmail('sapir.holzman@gmail.com ')
+            node / gitConfigEmail('sapir.holzman@gmail.com')
         }
     }
     triggers {
