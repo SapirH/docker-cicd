@@ -43,6 +43,7 @@ job('NodeJS Docker example') {
         }
     }
 }
+
 pipelineJob('boilerplate-pipeline') {
   triggers {
       scm('H/5 * * * *')
@@ -50,12 +51,14 @@ pipelineJob('boilerplate-pipeline') {
   definition {
     cpsScm {
         scm {
-            git('git@github.com:SapirH/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
-                node / gitConfigName('SapirH')
-                node / gitConfigEmail('sapir.holzman@gmail.com ')
+            git {
+              remote { url(git@github.com:SapirH/docker-cicd.git) }
+              branches('master', '**/feature*')
             }
-            scriptPath('./basic/misc/Jenkinsfile') 
+            scriptPath('./basic/misc/Jenkinsfile')
         }   
     }
   }
 }
+
+
