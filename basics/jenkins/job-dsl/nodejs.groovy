@@ -54,8 +54,8 @@ pipelineJob('boilerplate-pipeline') {
             git {
               remote { url('https://github.com/SapirH/docker-cicd.git') }
               branches('master')
+              scriptPath('./basics/misc/Jenkinsfile')
             }
-            scriptPath('./basic/misc/Jenkinsfile')
         }   
     }
   }
