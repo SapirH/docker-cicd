@@ -51,8 +51,8 @@ pipelineJob('boilerplate-pipeline') {
                 node / gitConfigName('SapirH')
                 node / gitConfigEmail('sapir.holzman@gmail.com ')
             }
-            scriptPath('./basic/misc/Jenkinsfile')
-        }
+            scriptPath('./basic/misc/Jenkinsfile') 
+        }   
     }
   }
 }
