@@ -1,6 +1,6 @@
 job('NodeJS example') {
     scm {
-        git('git@github.com:SapirH/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
+        git('https://github.com/SapirH/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('SapirH')
             node / gitConfigEmail('sapir.holzman@gmail.com ')
         }
@@ -19,7 +19,7 @@ job('NodeJS example') {
 
 job('NodeJS Docker example') {
     scm {
-        git('git@github.com:SapirH/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
+        git('https://github.com/SapirH/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('SapirH')
             node / gitConfigEmail('sapir.holzman@gmail.com ')
         }
@@ -52,7 +52,7 @@ pipelineJob('boilerplate-pipeline') {
     cpsScm {
         scm {
             git {
-              remote { url('git@github.com:SapirH/docker-cicd.git') }
+              remote { url('https://github.com/SapirH/docker-cicd.git') }
               branches('master', '**/feature*')
             }
             scriptPath('./basic/misc/Jenkinsfile')
@@ -60,5 +60,3 @@ pipelineJob('boilerplate-pipeline') {
     }
   }
 }
-
-
