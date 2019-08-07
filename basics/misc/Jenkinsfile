@@ -16,12 +16,15 @@ node {
        def app = docker.build("sapirh/nodejs-demo:${commit_id}", './basics').push()
      }
    }
-    stage('docker run') {
+   stage('docker run') {
      sh label: '', script: '''
+      docker rm -f docker_test
       docker run --rm -tid --name docker_test -p 3000 sapirh/nodejs-demo
+      PORT=$(docker inspect docker_test | jq -r '.[].NetworkSettings.Ports."3000/tcp"[].HostPort')
+      echo $PORT
+      curl -i localhost:$PORT
       docker kill docker_test
       
       '''
      }
    }
-
